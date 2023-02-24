@@ -1,5 +1,5 @@
 ------------------------- MODULE BookKeeperProtocolWithLimbo -------------------------
-EXTENDS MessagePassing, Naturals, FiniteSets, FiniteSetsExt, Sequences, SequencesExt, Integers, TLC
+EXTENDS MessagePassing_v4_13, Naturals, FiniteSets, FiniteSetsExt, Sequences, SequencesExt, Integers, TLC
 
 (*
 Represents proposed changes to make running BookKeeper without the journal safe (Kafka safety equivalent).
@@ -193,7 +193,7 @@ ClientCreatesLedger(cid) ==
     /\ UNCHANGED << bookie_vars, meta_last_entry, messages, crashes >>
 
 (***************************************************************************)
-(* ACTION: Send Add Entry Requests for a given data item                   *)
+(* ACTION: Send Add Entry Requests focr a given data item                   *)
 (*                                                                         *)
 (* The client sends an AddEntryRequestMessage to each bookie of the        *)
 (* current fragment ensemble for a data item not yet sent.                 *)

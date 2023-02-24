@@ -18,14 +18,14 @@ EXTENDS QuorumCoverage, Naturals, FiniteSets, Sequences, Integers, TLC
     due to having not received a response yet, getting an error response or timeout.
 *)
 
-CONSTANT ALL_BOOKIES    \* the bookies to use e.g. {b1, b2, b3, b4, b5}. 
-                        \* All permutations will be tested.
-         
-\* Model values for responses         
-CONSTANT PENDING,       \* pending a response
-         FENCED,        \* bookie is fenced 
-         UNKNOWN        \* unknown (timeout or error response)
-         
+\*CONSTANT ALL_BOOKIES    \* the bookies to use e.g. {b1, b2, b3, b4, b5}.
+\*                        \* All permutations will be tested.
+\*
+\*\* Model values for responses
+\*CONSTANT PENDING,       \* pending a response
+\*         FENCED,        \* bookie is fenced
+\*         UNKNOWN        \* unknown (timeout or error response)
+
 VARIABLE ensemble_size, \* the ensemble size, E
          curr_ensemble, \* the current ledger ensemble (size E)
          aq,		    \* the ack quorum
