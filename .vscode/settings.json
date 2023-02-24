@@ -1,0 +1,6 @@
+{
+    "tlaplus.java.options": "-cp  CommunityModules.jar:tla2tools.jar",
+    "tlaplus.pluscal.options": "",
+    "tlaplus.tlc.modelChecker.createOutFiles": false,
+    "tlaplus.tlc.modelChecker.options": " -deadlock -workers auto"
+}
