@@ -68,7 +68,7 @@ ClearReadTimeouts(msg, ensemble) ==
                                                 ELSE messages[m]]
 
 DelCountOf(msg, counts) ==
-    /\ LET pair == CHOOSE c \in counts : c[1] = msg
+    LET pair == CHOOSE c \in counts : c[1] = msg
        IN pair[2]
 
 \* Send a set of messages only if none have been previously sent
@@ -76,11 +76,9 @@ DelCountOf(msg, counts) ==
 \* The TLA+ is simply choosing a delivery count for each message that
 \* TLC will explore exhaustively.
 SendMessagesToEnsemble(msgs) ==
-    /\ Print(<<"=============msgs", msgs>>, TRUE)
     /\ \A msg \in msgs : msg \notin DOMAIN messages
     /\ LET possible_del_counts == { s \in SUBSET (msgs \X {-1, 1}) :
                                         /\ Cardinality(s) = Cardinality(msgs)
-                                        /\ Print(<<"=============s", s>>, TRUE)
                                         /\ \A msg \in msgs : \E s1 \in s : s1[1] = msg
                                   }
        IN
